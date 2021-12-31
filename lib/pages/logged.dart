@@ -19,7 +19,6 @@ class _loged extends State<loged> {
 
 
 
-
   final dbaHelper = userDatabase.instance;
 
   late List<Map<String, dynamic>>  myComp;

@@ -37,7 +37,7 @@ class _addcomponent extends State<addcomponent> {
     List<String> items=[];
     await dbaHelper.getAllCat().then((value) {
       for (var i = 0; i < value.length; i++) {
-        items.add(value[i]['family_name']);
+        items.add(value[i]['familyName']);
       }
     }
     );
@@ -143,6 +143,7 @@ class _addcomponent extends State<addcomponent> {
                               componentName: name,
                               quantity: quantity,
                               date: date,
+                              cat:SelectedValue
 
                             );
                             userDatabase.instance.createComponent(a);

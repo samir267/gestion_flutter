@@ -22,7 +22,7 @@ class _login extends State<login> {
         title: Text("Login"),
       ),
       body: Container(
-        padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
+        padding: EdgeInsets.fromLTRB(40, 40, 40, 40),
         child: Form(
           key: _formKey,
           child: Column(
@@ -57,7 +57,7 @@ class _login extends State<login> {
                 },
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, 70, 0, 0),
                 child: Center(
                     child: Column(
                       children: [
@@ -67,14 +67,14 @@ class _login extends State<login> {
                                 .getbyUsername(_username, password);
                             Navigator.pushNamed(context, '/logged');
                           },
-                          child: const Text('Login'),
+                          child: const Text('sign in'),
                         ),
-                        Text('You dont have a account ?'),
+                        Text('new account ?'),
                         TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, '/singup');
                             },
-                            child: Text("Singup here"))
+                            child: Text("Singup"))
                       ],
                     )),
               ),

@@ -24,7 +24,7 @@ class _singup extends State<singup> {
         title: Text("Sing Up"),
       ),
       body: Container(
-        padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+        padding: EdgeInsets.fromLTRB(15, 30, 15, 30),
         child: Form(
           key: _formKey,
           child: Column(
@@ -72,20 +72,7 @@ class _singup extends State<singup> {
                   });
                 },
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Phone2"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return "Phone2 is required";
-                  }
-                  return null;
-                },
-                onChanged: (String? value) {
-                  setState(() {
-                    phone2 = value.toString();
-                  });
-                },
-              ),
+
               TextFormField(
                 decoration: InputDecoration(labelText: "First name"),
                 validator: (String? value) {
@@ -127,13 +114,12 @@ class _singup extends State<singup> {
                                   username: _username,
                                   password: password,
                                   phone: phone,
-                                  phone2 : phone2,
                                   firstName : firstName,
                                   lastName : lastName
                               );
                               userDatabase.instance.create(a);
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Sumbimited")),
+                                SnackBar(content: Text("user created")),
                               );
                             }
                           },
@@ -144,7 +130,7 @@ class _singup extends State<singup> {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: Text('Login'))
+                            child: Text('sign-in'))
                       ],
                     )),
               ),

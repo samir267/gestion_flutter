@@ -7,6 +7,7 @@ class ComponentField {
   static final String componentName = 'componentName';
   static final String quantity = 'quantity';
   static final String date = 'date';
+  static final String cat = 'cat';
 
 
 
@@ -17,13 +18,14 @@ class Component {
   final String componentName;
   final String quantity;
   final String date;
-
+  final String cat;
 
   Component({
     this.id,
     required this.componentName,
     required this.quantity,
-    required this.date
+    required this.date,
+    required this.cat
 
   });
   static Component fromJson(Map<String, Object?> json) => Component(
@@ -31,6 +33,8 @@ class Component {
     componentName: json[ComponentField.componentName] as String,
     quantity: json[ComponentField.quantity] as String,
     date: json[ComponentField.date] as String,
+    cat: json[ComponentField.cat] as String,
+
 
 
   );
@@ -40,6 +44,8 @@ class Component {
     ComponentField.componentName: componentName,
     ComponentField.quantity: quantity,
     ComponentField.date: date,
+    ComponentField.cat: cat,
+
 
 
   };
@@ -48,6 +54,7 @@ class Component {
     componentName: componentName ?? this.componentName,
     quantity: quantity ?? this.quantity,
     date: date ?? this.date,
+    cat:cat ??this.cat
 
 
   );
@@ -57,7 +64,9 @@ class Component {
       'id': id,
       'componentname': componentName,
       'quantity':quantity,
-      'date':date
+      'date':date,
+      'cat':cat
+
 
     };
   }

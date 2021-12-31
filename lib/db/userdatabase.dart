@@ -9,10 +9,11 @@ import 'package:sqflite/sqflite.dart' show ConflictAlgorithm, Database, getDatab
 
 class userDatabase {
 
-  static final familyname = 'family_name';
+  static final familyName ='familyName';
   static final id='id';
   static final quantity='quantity';
   static final date='date';
+  static final username='username';
 
 
   static final instance = userDatabase._init();
@@ -43,7 +44,6 @@ class userDatabase {
         ${Userfiled.username} $textType,
         ${Userfiled.password} $textType,
         ${Userfiled.phone} $textType,
-        ${Userfiled.phone2} $textType,
         ${Userfiled.firstName} $textType,
         ${Userfiled.lastName} $textType
       )''');
@@ -58,7 +58,7 @@ class userDatabase {
                 ${ComponentField.componentName}, $textType,
                 ${ComponentField.quantity} $textType,
                 ${ComponentField.date} $textType,
-                FOREIGN KEY (componentName) REFERENCES FamilyField (id)
+                FOREIGN KEY (cat) REFERENCES FamilyField (id)
                   ON DELETE NO ACTION ON UPDATE NO ACTION)''');
 
 
@@ -112,7 +112,7 @@ class userDatabase {
 
   Future<List<Map<String, dynamic>>> getAllCat() async {
     Database db = await instance.database;
-    var res= await db.rawQuery("SELECT $familyname FROM $familytable");
+    var res= await db.rawQuery("SELECT $familyName FROM $familytable");
 
     return res;
   }
